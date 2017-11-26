@@ -1,14 +1,33 @@
-<h2>{{reminder.title | uppercase}} Details</h2>
-<div>
-    <span>ID: </span>
-    {{reminder.id}}
-</div>
-<div>
-    <span>Date: </span>
-    {{reminder.date}}
+<div class="container">
+    <div class="row">
+        <div class="col-xl-10">
+            <img src="../../assets/mycar.jpg" class="col-md-4 img-responsive img-rounded" alt="Cinque Terre">
+        </div>
+        <div class="col-sm-2">
+            State of the nation
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xl-12">
+            Summary: as of today, {{summary.todayDate.toLocaleDateString()}}, you have {{summary.numberOfExpiredTaxes}} expired taxes out of {{summary.totalNumberOfTaxes}}.
+        </div>
+    </div>
+
+    <div class="row">
+        <h2>{{reminder.title | uppercase}} Details</h2>
+        <div>
+            <span>ID: </span>
+            {{reminder.id}}
+        </div>
+        <div>
+            <span>Date: </span>
+            {{reminder.date}}
+        </div>
+    </div>
 </div>
 
-<alert type="success">
+<!-- <alert type="success">
     <strong>Well done!</strong> You successfully read
     <a href="#" class="alert-link">this important alert message</a>.
-</alert>
+</alert> -->

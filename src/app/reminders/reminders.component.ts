@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Reminder } from './reminder.model';
+import { Summary } from './summary.model';
 
 @Component({
   selector: 'app-reminders',
@@ -8,6 +9,11 @@ import { Reminder } from './reminder.model';
 })
 export class RemindersComponent implements OnInit {
 
+  summary: Summary = {
+    todayDate: new Date(),
+    numberOfExpiredTaxes: 3,
+    totalNumberOfTaxes: 6
+  };
   reminder: Reminder = {
     id: 1,
     title: 'First Reminder',

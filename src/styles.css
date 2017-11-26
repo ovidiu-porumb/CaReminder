@@ -13,6 +13,7 @@ h1 {
     font-weight: lighter;
   }
   body {
+    background-color: rgba(91, 146, 201, 0.349);
     margin: 2em;
   }
   body, input[text], button {
