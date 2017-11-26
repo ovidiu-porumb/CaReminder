@@ -12,7 +12,7 @@ export class RemindersComponent implements OnInit {
     id: 1,
     title: 'First Reminder',
     date: new Date()
-  }
+  };
 
   constructor() { }
 

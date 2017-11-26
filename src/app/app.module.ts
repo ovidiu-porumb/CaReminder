@@ -4,13 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RemindersComponent } from './reminders/reminders.component';
 
+import { AlertModule} from 'ngx-bootstrap/alert';
+
 @NgModule({
   declarations: [
     AppComponent,
     RemindersComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AlertModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
