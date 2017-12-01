@@ -10,11 +10,13 @@
 
     <div class="row">
         <div class="col-xl-12">
-            Summary: as of today, {{summary.todayDate.toLocaleDateString()}}, you have {{summary.numberOfExpiredTaxes}} expired taxes out of {{summary.totalNumberOfTaxes}}.
+            Summary: as of today, {{summary.todayDate.toLocaleDateString()}}, you have {{summary.numberOfExpiredTaxes}} expired taxes
+            out of {{summary.totalNumberOfTaxes}}.
         </div>
     </div>
 
-    <div class="row">
+
+    <div class="row" *ngFor="let reminder of reminders" (click)="onSelect(reminder)">
         <h2>{{reminder.title | uppercase}} Details</h2>
         <div>
             <span>ID: </span>

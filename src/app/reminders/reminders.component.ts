@@ -1,28 +1,38 @@
 import { Component, OnInit } from '@angular/core';
 import { Reminder } from './reminder.model';
 import { Summary } from './summary.model';
+import { RemindersService} from './reminders.service';
 
 @Component({
   selector: 'app-reminders',
   templateUrl: './reminders.component.html',
-  styleUrls: ['./reminders.component.css']
+  styleUrls: ['./reminders.component.css'],
+  providers: [RemindersService]
 })
+
 export class RemindersComponent implements OnInit {
+
+  private remindersService: RemindersService;
 
   summary: Summary = {
     todayDate: new Date(),
     numberOfExpiredTaxes: 3,
     totalNumberOfTaxes: 6
   };
-  reminder: Reminder = {
-    id: 1,
-    title: 'First Reminder',
-    date: new Date()
-  };
+  reminders: Array<Reminder>;
+  selectedReminder: Reminder;
 
-  constructor() { }
+  constructor(remindersService: RemindersService) {
+    this.remindersService = remindersService;
+  }
 
   ngOnInit() {
+    this.reminders = this.remindersService.getReminders();
   }
+
+  onSelect(reminder: Reminder): void {
+    this.selectedReminder = reminder;
+  }
+
 
 }
