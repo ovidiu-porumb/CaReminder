@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+
 import { Reminder} from './reminder.model';
 import { REMINDERS } from './mock-reminders';
 
@@ -12,8 +15,9 @@ export class RemindersService {
   constructor() {
    }
 
-  getReminders(): Array<Reminder> {
+  // todo: this uses http://reactivex.io/rxjs/ ; need to learn it
+  getReminders(): Observable<Array<Reminder>> {
     this.reminders = REMINDERS;
-    return this.reminders;
+    return of (this.reminders);
   }
 }

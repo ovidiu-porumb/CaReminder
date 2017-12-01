@@ -24,7 +24,8 @@ export class RemindersComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.reminders = this.remindersService.getReminders();
+    this.remindersService.getReminders()
+    .subscribe(reminders => this.reminders = reminders);
   }
 
   onSelect(reminder: Reminder): void {
