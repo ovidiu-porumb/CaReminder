@@ -10,10 +10,10 @@ export class RemindersService {
   reminders: Array<Reminder>;
 
   constructor() {
-    this.reminders = REMINDERS;
    }
 
   getReminders(): Array<Reminder> {
+    this.reminders = REMINDERS;
     return this.reminders;
   }
 }

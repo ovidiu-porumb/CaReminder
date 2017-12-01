@@ -12,8 +12,6 @@ import { RemindersService} from './reminders.service';
 
 export class RemindersComponent implements OnInit {
 
-  private remindersService: RemindersService;
-
   summary: Summary = {
     todayDate: new Date(),
     numberOfExpiredTaxes: 3,
@@ -22,8 +20,7 @@ export class RemindersComponent implements OnInit {
   reminders: Array<Reminder>;
   selectedReminder: Reminder;
 
-  constructor(remindersService: RemindersService) {
-    this.remindersService = remindersService;
+  constructor(private remindersService: RemindersService) {
   }
 
   ngOnInit() {
@@ -33,6 +30,4 @@ export class RemindersComponent implements OnInit {
   onSelect(reminder: Reminder): void {
     this.selectedReminder = reminder;
   }
-
-
 }
