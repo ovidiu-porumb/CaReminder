@@ -30,5 +30,6 @@ export class RemindersComponent implements OnInit {
 
   onSelect(reminder: Reminder): void {
     this.selectedReminder = reminder;
+    console.log(this.selectedReminder);
   }
 }

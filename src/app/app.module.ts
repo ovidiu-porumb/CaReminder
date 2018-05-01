@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RemindersComponent } from './reminders/reminders.component';
 
-import { AlertModule} from 'ngx-bootstrap/alert';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
   declarations: [
