@@ -39,46 +39,28 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" *ngFor="let reminder of reminders">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">RCA</h3>
+                        <h3 class="panel-title">{{reminder.title}}</h3>
                     </div>
-                    <div class="panel-body" ngNonBindable>
-                        Status: {{Paid/Unpaid}} {{Expired/Still valid}}
+
+                    <div class="panel-body">
+                        <!-- You shouldn't use interpolation {{ }} in ngIf; it expects an expression !!! -->
+                        <div *ngIf="reminder.isExpired(); then thenBlock else elseBlock"></div>
+                        <ng-template #thenBlock>
+                            <p class="alert alert-danger">Expired</p>
+                        </ng-template>
+                        <ng-template #elseBlock>
+                            <p class="alert alert-success">Valid</p>
+                        </ng-template>
+                        <!-- JS handling the dates... -->
+                        <p>Valid until: {{reminder.validUntil.toLocaleString()}}</p>
+                        <p ngNonBindable>Add here the last price paid {{reminder.Price}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">Rovignette</h3>
-                    </div>
-                    <div class="panel-body" ngNonBindable>
-                        Status: {{Paid/Unpaid}} {{Expired/Still valid}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">ITP</h3>
-                    </div>
-                    <div class="panel-body" ngNonBindable>
-                        Status: {{Paid/Unpaid}} {{Expired/Still valid}}
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">CASCO</h3>
-                    </div>
-                    <div class="panel-body" ngNonBindable>
-                        Status: {{Paid/Unpaid}} {{Expired/Still valid}}
-                    </div>
-                </div>
-            </div>
+
             <!-- OP: way nicer with Bootstrap 4 below: cards instead of panels -->
             <!-- <div class="card">
               <img data-src="holder.js/100px280/thumb" alt="Card image cap">
