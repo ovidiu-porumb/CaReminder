@@ -39,13 +39,13 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-4" *ngFor="let reminder of reminders">
+            <div class="col-md-4" *ngFor="let reminder of reminders" (click)="onSelect(reminder)">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">{{reminder.title}}</h3>
                     </div>
 
-                    <div class="panel-body">
+                    <div class="panel-body" [class.selected]="reminder === selectedReminder">
                         <!-- You shouldn't use interpolation {{ }} in ngIf; it expects an expression !!! -->
                         <div *ngIf="reminder.isExpired(); then thenBlock else elseBlock"></div>
                         <ng-template #thenBlock>

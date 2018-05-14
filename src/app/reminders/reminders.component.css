@@ -1,3 +1,8 @@
 .panel-body{
     background-color: #292b2c;
 }
+
+.selected {
+    background-color: #CFD8DC;
+    color: white;
+  }

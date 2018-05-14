@@ -9,13 +9,11 @@ import { RemindersService} from './reminders.service';
   styleUrls: ['./reminders.component.css'],
   providers: [RemindersService]
 })
-
 export class RemindersComponent implements OnInit {
-
   summary: Summary = {
     todayDate: new Date(),
     numberOfExpiredTaxes: 3,
-    totalNumberOfTaxes: 6
+    totalNumberOfTaxes: 6 
   };
   reminders: Array<Reminder>;
   selectedReminder: Reminder;
